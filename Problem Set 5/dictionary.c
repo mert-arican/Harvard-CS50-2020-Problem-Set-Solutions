@@ -98,23 +98,23 @@ unsigned int size(void)
 bool unload(void)
 {
 //    printf("unload\n");
-        for (int i = 0; i < N; i++) {
-            for (node *list = table[i]; list == NULL; list = list->next) {
-                node *tmp = list->next;
-                free(list); list = tmp;
-                printf("PPP\n");
-            }
-        }
-    
-//    for (int index = 0; index < N; index++) {
-//        node *list = table[index];
-//        while (list != NULL)
-//        {
-//            printf("PPP");
-//            node *tmp = list->next;
-//            free(list);
-//            list = tmp;
+//        for (int i = 0; i < N; i++) {
+//            for (node *list = table[i]; list == NULL; list = list->next) {
+//                node *tmp = list->next;
+//                free(list); list = tmp;
+//               printf("PPP\n");
+//            }
 //        }
-//    }
+    
+    for (int index = 0; index < N; index++) {
+        node *list = table[index];
+        while (list != NULL)
+        {
+            node *tmp = list->next;
+            free(list);
+            list = tmp;
+        }
+    }
+    
     return true;
 }
